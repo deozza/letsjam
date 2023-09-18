@@ -33,7 +33,6 @@
 		TanoshiAlertModel,
 		TanoshiAlert,
         } from "tanoshi";
-	import { e } from "vitest/dist/reporters-cb94c88b";
 
     const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setBackgroundTheme(THEMES.Black)
@@ -155,8 +154,6 @@
             tanoshiFormModel = tanoshiFormModel
             alert(error)
         });
-
-
     }
     
 
@@ -176,6 +173,7 @@
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
 
             <TanoshiForm {tanoshiFormModel} on:submit={(e) => handleForm(e)}/>
+
             <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
 
         </TanoshiContainer>
