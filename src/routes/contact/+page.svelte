@@ -102,14 +102,13 @@
         .setType(BUTTON_TYPES.Submit)
         .setBasicTheme(THEMES.Primary)
 
-    let tanoshiFormModel: TanoshiFormModel = new TanoshiFormModel(submitButton)
+    let tanoshiFormModel: TanoshiFormModel = new TanoshiFormModel(submitButton, 'contact')
         .addLabelAndInput(new TanoshiLabelAndInputModel(emailLabel, emailInput, TanoshiTextInput))
         .addLabelAndInput(new TanoshiLabelAndInputModel(nameLabel, nameInput, TanoshiTextInput))
         .addLabelAndInput(new TanoshiLabelAndInputModel(informationTypeRadioChoiceGroupLabelModel, informationTypeRadioChoiceGroupModel, TanoshiChoiceGroup))
         .addLabelAndInput(new TanoshiLabelAndInputModel(contentLabel, contentInput, TanoshiTextareaInput))
         .setNetlifyRecaptchaEnabled(true)
         .setNetlifyEnabled(true)
-        .setAction('/contact')
 
     tanoshiFormModel.container
         .setWidth(WIDTHS.W8)
