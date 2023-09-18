@@ -1,0 +1,36 @@
+:root{
+    --primary: rgb(217, 119, 52);
+    --primary-dark: rgb(108, 68, 28);
+    --primary-text-header: rgb(217, 119, 52);
+    --secondary: rgb(107 114 128);
+    --secondary-dark: rgb(75 85 99);
+    --success: rgb(34 197 94);
+    --success-dark: rgb(22 163 74);
+    --warning: rgb(234 179 8);
+    --warning-dark: rgb(202 138 4);
+    --danger: rgb(239 68 68);
+    --danger-dark: rgb(220 38 38);
+    --info: rgb(103 232 249);
+    --info-dark: rgb(34 211 238);
+    --white: rgb(255 255 255);
+    --white-dark: rgb(100 116 139);
+    --black: rgb(60, 59, 59);
+    --black-dark: rgb(4, 4, 4);
+}
+
+nav {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+p, button, span, label, textarea, input, select, option {
+    font-family: Oswald, sans-serif;
+}
+
+.no-padding {
+    padding: 0!important;
+}
