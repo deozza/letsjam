@@ -16,9 +16,10 @@
         TanoshiHeaderModel,
         TanoshiLinkModel, 
         TanoshiParagraph, 
-        TanoshiParagraphModel
+        TanoshiParagraphModel,
+		TanoshiLinkAsButtonModel,
+		TanoshiLinkAsButton,
         } from "tanoshi";
-	import TanoshiLinkAsButtonModel from "tanoshi/dist/molecules/link/TanoshiLinkAsButton/TanoshiLinkAsButtonModel";
 
     const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setBackgroundTheme(THEMES.Primary)
@@ -168,10 +169,11 @@
     <TanoshiContainer tanoshiContainerModel={servicesContentContainer} customClasses={'no-padding'}>
         <TanoshiContainer tanoshiContainerModel={servicesContentLeftContainer}>
             <TanoshiHeader tanoshiHeaderModel={servicesDevelopmentHeader} />
-
+            <TanoshiLinkAsButton tanoshiLinkModel={devKnowMoreLinkAsButton} />
         </TanoshiContainer>
         <TanoshiContainer tanoshiContainerModel={servicesContentRightContainer}>
             <TanoshiHeader tanoshiHeaderModel={servicesFormationsHeader} />
+            <TanoshiLinkAsButton tanoshiLinkModel={formationKnowMoreLinkAsButton} />
         </TanoshiContainer>
     </TanoshiContainer>
 </section>

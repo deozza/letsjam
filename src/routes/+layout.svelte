@@ -24,13 +24,13 @@
         .setTheme(THEMES.Primary)
         .setDisplaySize(SIZES.Lg);
    
-    const navbarCenterItemModels: Array<TanoshiNavigationLinkModel> = [
-		{
-			link: devsLink,
-			component: TanoshiLink
-		},
+    const desktopNavbarLeftItemModels: Array<TanoshiNavigationLinkModel> = [
 		{
 			link: logoLink,
+			component: TanoshiLink
+		},
+        {
+			link: devsLink,
 			component: TanoshiLink
 		},
 		{
@@ -39,7 +39,7 @@
 		},
 	];
 
-    const navbarRightItemModels: Array<TanoshiNavigationLinkModel> = [
+    const desktopNavbarRightItemModels: Array<TanoshiNavigationLinkModel> = [
 		{
 			link: resumeLink,
 			component: TanoshiLink
@@ -50,17 +50,57 @@
 		}
 	];
 
+    const mobileNavbarTopItemModels: Array<TanoshiNavigationLinkModel> = [
+		{
+			link: logoLink,
+			component: TanoshiLink
+		}
+	];
 
-    const tanoshiNavigationModel: TanoshiNavigationModel = new TanoshiNavigationModel()
+
+    const mobileNavbarCenterItemModels: Array<TanoshiNavigationLinkModel> = [
+        {
+			link: devsLink,
+			component: TanoshiLink
+		},
+		{
+			link: coursesLink,
+			component: TanoshiLink
+		},
+        {
+			link: resumeLink,
+			component: TanoshiLink
+		},
+		{
+			link: contactLink,
+			component: TanoshiLink
+		}
+	];
+
+
+    const tanoshiDesktopNavigationModel: TanoshiNavigationModel = new TanoshiNavigationModel()
         .setTheme(THEMES.Black)
-        .setItemsAtCenter(navbarCenterItemModels)
-        .setItemsAtRight(navbarRightItemModels);
+        .setItemsAtLeft(desktopNavbarLeftItemModels)
+        .setItemsAtRight(desktopNavbarRightItemModels);
+
+    const tanoshiMobileNavigationModel: TanoshiNavigationModel = new TanoshiNavigationModel()
+        .setTheme(THEMES.Black)
+        .setItemsAtLeft(mobileNavbarTopItemModels)
+        .setItemsAtCenter(mobileNavbarCenterItemModels);
+    
 
 </script>
 
-<div>
-    <TanoshiNavigation tanoshiDesktopNavigationModel={tanoshiNavigationModel}  tanoshiMobileNavigationModel={tanoshiNavigationModel} />
-    <main class="relative">
-        <slot />
-    </main>
-</div>
+
+<TanoshiNavigation tanoshiDesktopNavigationModel={tanoshiDesktopNavigationModel}  tanoshiMobileNavigationModel={tanoshiMobileNavigationModel} />
+<main>
+	<slot />
+</main>
+
+<style>
+    @media (min-width: 768px) {
+        main {
+            padding-top: 96px;
+        }
+    }
+</style>
