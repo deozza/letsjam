@@ -127,8 +127,8 @@
         tanoshiFormModel.setSubmitButton(submitButton)
         tanoshiFormModel = tanoshiFormModel
 
-        const form = e.target
-        const formData: FormData = new FormData(form)
+        const form = document.forms[0]
+        const formData = new FormData(form)
         
         fetch("/", {
             method: "POST",
