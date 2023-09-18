@@ -120,25 +120,40 @@
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
     
-    function handleForm(){
-        submitButton.setIsDisabled(true)
+    function handleForm(e: any){
+        submitButton.setLoaderOn()
         submitButton = submitButton
 
         tanoshiFormModel.setSubmitButton(submitButton)
         tanoshiFormModel = tanoshiFormModel
+
+        const form = e.target
+        const formData: FormData = new FormData(form)
         
         fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(tanoshiFormModel.values).toString(),
+            body: new URLSearchParams(formData).toString(),
         })
         .then(() => {
+            submitButton.setLoaderOff()
+            submitButton.setIsDisabled(true)
+            submitButton = submitButton 
+
+            tanoshiFormModel.setSubmitButton(submitButton)
+            tanoshiFormModel = tanoshiFormModel
+
             formSubmitSuccessAlert.setVisible(true)
             formSubmitSuccessAlert = formSubmitSuccessAlert
         })
-        .catch((error) => alert(error));
+        .catch((error) => {
+            submitButton.setLoaderOff()
+            submitButton = submitButton 
 
-
+            tanoshiFormModel.setSubmitButton(submitButton)
+            tanoshiFormModel = tanoshiFormModel
+            alert(error)
+        });
     }
     
 
@@ -157,7 +172,8 @@
             <TanoshiHeader tanoshiHeaderModel={contactHeader} />
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
 
-            <TanoshiForm {tanoshiFormModel} on:submit={handleForm}/>
+            <TanoshiForm {tanoshiFormModel} on:submit={(e) => handleForm(e)}/>
+
             <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
 
         </TanoshiContainer>
