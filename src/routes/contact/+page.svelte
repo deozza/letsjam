@@ -34,6 +34,8 @@
 		TanoshiAlert,
         } from "tanoshi";
 
+    export const prerender = true
+
     const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setBackgroundTheme(THEMES.Black)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
@@ -108,6 +110,7 @@
         .addLabelAndInput(new TanoshiLabelAndInputModel(contentLabel, contentInput, TanoshiTextareaInput))
         .setNetlifyRecaptchaEnabled(true)
         .setNetlifyEnabled(true)
+        .setAction('/contact')
 
     tanoshiFormModel.container
         .setWidth(WIDTHS.W8)
@@ -120,17 +123,18 @@
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
     
-    function handleForm(e: any){
+    async function handleForm(e: any){
         submitButton.setLoaderOn()
         submitButton = submitButton
 
         tanoshiFormModel.setSubmitButton(submitButton)
         tanoshiFormModel = tanoshiFormModel
 
-        const form = document.forms[0]
-        const formData = new FormData(form)
+        let form = document.forms[0]
+        console.log(form.elements)
+
         
-        fetch("/", {
+        await fetch("/contact", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
