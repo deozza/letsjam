@@ -128,9 +128,8 @@
         tanoshiFormModel.setSubmitButton(submitButton)
         tanoshiFormModel = tanoshiFormModel
 
-        let form = document.forms[0]
-        console.log(form.elements)
-
+        const form: HTMLFormElement = e.target as HTMLFormElement
+        const formData = new FormData(form)
         
         await fetch("/contact", {
             method: "POST",
