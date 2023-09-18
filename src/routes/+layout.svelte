@@ -3,6 +3,8 @@
     import './app.css';
 	import type { TanoshiNavigationLinkModel } from 'tanoshi/dist/types/Types';
 
+    export const prerender = true
+
     const devsLink: TanoshiLinkModel = new TanoshiLinkModel('Développeur web')
         .setLink('/website-creation')
         .setTheme(THEMES.Primary)

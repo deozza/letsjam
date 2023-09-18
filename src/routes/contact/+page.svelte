@@ -34,7 +34,6 @@
 		TanoshiAlert,
         } from "tanoshi";
 
-    export const prerender = true
 
     const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setBackgroundTheme(THEMES.Black)
