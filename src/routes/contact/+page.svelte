@@ -129,12 +129,11 @@
         tanoshiFormModel = tanoshiFormModel
 
         const form: HTMLFormElement = e.target as HTMLFormElement
-        const formData = new FormData(form)
         
-        await fetch("/contact", {
+        await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
+            body: new URLSearchParams(form).toString(),
         })
         .then(() => {
             submitButton.setLoaderOff()
