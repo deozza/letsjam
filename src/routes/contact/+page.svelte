@@ -70,24 +70,24 @@
         .initWithInput(nameInput)
         .setValue('Votre nom :')
 
-    const radioDevChoiceInput: TanoshiChoiceInputModel = new TanoshiChoiceInputModel('dev-choice')
+    const radioDevChoiceInput: TanoshiChoiceInputModel = new TanoshiChoiceInputModel('devChoice')
         .setChecked(true)
 
-    const radioCourseChoiceInput: TanoshiChoiceInputModel = new TanoshiChoiceInputModel('course-choice')
+    const radioCourseChoiceInput: TanoshiChoiceInputModel = new TanoshiChoiceInputModel('courseChoice')
 
-    const otherChoiceInput: TanoshiChoiceInputModel = new TanoshiChoiceInputModel('other-choice')
+    const otherChoiceInput: TanoshiChoiceInputModel = new TanoshiChoiceInputModel('otherChoice')
     
-    const radioDevChoiceInputLabel: TanoshiLabelModel = new TanoshiLabelModel('information-type-choice', 'Votre site web').setSpacing(false)
-    const radioCourseChoiceInputLabel: TanoshiLabelModel = new TanoshiLabelModel('information-type-choice', 'Un cours à donner').setSpacing(false)
-    const otherChoiceInputLabel: TanoshiLabelModel = new TanoshiLabelModel('information-type-choice', 'Autre').setSpacing(false)
+    const radioDevChoiceInputLabel: TanoshiLabelModel = new TanoshiLabelModel('devChoice', 'Votre site web').setSpacing(false)
+    const radioCourseChoiceInputLabel: TanoshiLabelModel = new TanoshiLabelModel('courseChoice', 'Un cours à donner').setSpacing(false)
+    const otherChoiceInputLabel: TanoshiLabelModel = new TanoshiLabelModel('otherChoice', 'Autre').setSpacing(false)
 
-    const informationTypeRadioChoiceGroupModel: TanoshiChoiceGroupModel = new TanoshiChoiceGroupModel('information-type-choice')
+    const informationTypeRadioChoiceGroupModel: TanoshiChoiceGroupModel = new TanoshiChoiceGroupModel('informationTypeChoice')
         .addChoice({label: radioDevChoiceInputLabel, input: radioDevChoiceInput})
         .addChoice({label: radioCourseChoiceInputLabel, input: radioCourseChoiceInput})
         .addChoice({label: otherChoiceInputLabel, input: otherChoiceInput})
         .setValue([radioDevChoiceInput.value])
 
-    const informationTypeRadioChoiceGroupLabelModel: TanoshiLabelModel = new TanoshiLabelModel('information-type-choice', 'Objet :')
+    const informationTypeRadioChoiceGroupLabelModel: TanoshiLabelModel = new TanoshiLabelModel('informationTypeChoice', 'Objet :')
     
     const contentInput: TanoshiTextareaInputModel = new TanoshiTextareaInputModel('content')
         .setId('content')
