@@ -128,15 +128,14 @@
         tanoshiFormModel.setSubmitButton(submitButton)
         tanoshiFormModel = tanoshiFormModel
 
-        let urlSearchParams: URLSearchParams = new URLSearchParams()
+        let formData: FormData = new FormData()
         tanoshiFormModel.values.forEach((element: {id: string, value: any}) => {
-            urlSearchParams.append(element.id, element.value)
+            formData.append(element.id, element.value)
         });
 
         await fetch("/", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: urlSearchParams.toString(),
+            body: formData,
         })
         .then(() => {
             submitButton.setLoaderOff()
