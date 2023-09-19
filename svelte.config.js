@@ -15,6 +15,12 @@ const config = {
 			edge: false,
        		split: false
 		}),
+		prerender: {
+			crawl: true,
+			enabled: true,
+			onError: 'continue',
+			entries: ['*'],
+	   }
 	}
 };
 
