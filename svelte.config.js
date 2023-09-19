@@ -14,14 +14,14 @@ const config = {
 		adapter: adapter({
 			edge: false,
        		split: false
-		}),
-		prerender: {
-			crawl: true,
-			enabled: true,
-			onError: 'continue',
-			entries: ['*'],
-	   }
-	}
+		})
+	},
+	prerender: {
+		crawl: true,
+		enabled: true,
+		onError: 'continue',
+		entries: ['*'],
+   }
 };
 
 export default config;
