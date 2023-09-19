@@ -131,6 +131,7 @@
         tanoshiFormModel.values.forEach((element: {id: string, value: any}) => {
             formData.append(element.id, element.value)
         });
+        formData.append('form-name', tanoshiFormModel.name)
 
         await fetch("/", {
             method: "POST",
