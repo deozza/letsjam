@@ -136,7 +136,7 @@
         fetch("/contact/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formData,
+            body: new URLSearchParams(formData).toString(),
         })
         .then(() => {
             submitButton.setLoaderOff()
