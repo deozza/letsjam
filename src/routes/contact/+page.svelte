@@ -137,7 +137,7 @@
         });
         formData.append('form-name', tanoshiFormModel.name)
 
-        await fetch("/", {
+        await fetch("/contact/?form", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
