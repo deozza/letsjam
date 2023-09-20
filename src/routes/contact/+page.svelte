@@ -120,7 +120,7 @@
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
     
-    async function handleForm(e: any){
+    function handleForm(e: any){
         submitButton.setLoaderOn()
         submitButton = submitButton
 
@@ -133,10 +133,10 @@
         });
         formData.append('form-name', tanoshiFormModel.name)
 
-        await fetch("/", {
+        fetch("/contact/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
+            body: formData,
         })
         .then(() => {
             submitButton.setLoaderOff()
