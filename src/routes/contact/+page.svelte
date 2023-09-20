@@ -1,8 +1,3 @@
-<script context="module">
-	export const prerender = true;
-</script>
-
-
 <script lang="ts">
 	import { 
         CONTAINER_ITEMS_SPACING, 
