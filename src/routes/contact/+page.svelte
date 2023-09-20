@@ -180,40 +180,26 @@
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
             <TanoshiContainer tanoshiContainerModel={tanoshiFormModel.container}>
 
-                <form 
-                    method="{tanoshiFormModel.method}" 
-                    action="{tanoshiFormModel.action}"
-                    name="{tanoshiFormModel.name}"
-                    netlify
-                    data-netlify-honeypot="bot-field"
-                    >
-                    <ul>
-                        {#each tanoshiFormModel.labelsAndInputs as tanoshiLabelAndInputModel}
-                            <li>
-                                <TanoshiLabelAndInput {tanoshiLabelAndInputModel}/>
-                            </li>
-                        {/each}
-                        <li>
-                            <p class="hidden">
-                                <label>
-                                Don’t fill this out if you’re human: <input name="bot-field" />
-                                </label>
-                            </p>
-                        </li>
-                        {#if tanoshiFormModel.netlifyRecaptchaEnabled}
-                            <li class="space-y-2">
-                                <TanoshiContainer tanoshiContainerModel={buttonContainerModel}>
-                                    <div data-netlify-recaptcha="true"></div>
-                                </TanoshiContainer>
-                            </li>
-                        {/if}
-                        <li class='space-y-2'>
-                            <TanoshiContainer tanoshiContainerModel={buttonContainerModel}>
-                                <TanoshiButton tanoshiButtonModel={tanoshiFormModel.submitButton} />
-                            </TanoshiContainer>
-                        </li>
-                    </ul>
-                </form>
+                <form name="contact" method="POST" netlify>
+                    <p>
+                      <label>Your Name: <input type="text" name="name" /></label>
+                    </p>
+                    <p>
+                      <label>Your Email: <input type="email" name="email" /></label>
+                    </p>
+                    <p>
+                      <label>Your Role: <select name="role[]" multiple>
+                        <option value="leader">Leader</option>
+                        <option value="follower">Follower</option>
+                      </select></label>
+                    </p>
+                    <p>
+                      <label>Message: <textarea name="message"></textarea></label>
+                    </p>
+                    <p>
+                      <button type="submit">Send</button>
+                    </p>
+                  </form>
             </TanoshiContainer>
 
 
@@ -224,3 +210,23 @@
         </TanoshiContainer>
     </TanoshiContainer>
 </section>
+
+<style>
+    form{
+        min-width: 100%;
+    }
+    
+    form > ul{
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    form > ul > li.space-y-2{
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+    
+    form ul li p.hidden{
+        display: none;
+    }
+    </style>
