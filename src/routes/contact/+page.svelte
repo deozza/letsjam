@@ -124,7 +124,7 @@
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
     
-    function handleForm(e: any){
+    async function handleForm(){
         submitButton.setLoaderOn()
         submitButton = submitButton
 
@@ -137,7 +137,7 @@
         });
         formData.append('form-name', tanoshiFormModel.name)
 
-        fetch("/", {
+        await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
@@ -178,7 +178,7 @@
         <TanoshiContainer tanoshiContainerModel={heroContentContainer}>
             <TanoshiHeader tanoshiHeaderModel={contactHeader} />
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
-            <TanoshiForm {tanoshiFormModel} on:submit={(e) => handleForm(e)}/>
+            <TanoshiForm {tanoshiFormModel} on:submit={handleForm}/>
                 <!-- <form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/contact">
                     <input type="hidden" name="form-name" value="netlify-form-example" />
                     <label for="name">Name</label>
