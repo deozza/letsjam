@@ -1,3 +1,8 @@
+<script context="module">
+	export const prerender = true;
+</script>
+
+
 <script lang="ts">
 	import { 
         CONTAINER_ITEMS_SPACING, 
@@ -133,7 +138,7 @@
         });
         formData.append('form-name', tanoshiFormModel.name)
 
-        fetch("/contact/", {
+        fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString(),
