@@ -32,6 +32,8 @@
 		TEXT_ALIGNMENT,
 		TanoshiAlertModel,
 		TanoshiAlert,
+		TanoshiLabelAndInput,
+		TanoshiButton,
         } from "tanoshi";
 
 
@@ -120,6 +122,8 @@
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
     
+    const buttonContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R).setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center).setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered);
+
     async function handleForm(e: any){
         submitButton.setLoaderOn()
         submitButton = submitButton
@@ -174,8 +178,46 @@
         <TanoshiContainer tanoshiContainerModel={heroContentContainer}>
             <TanoshiHeader tanoshiHeaderModel={contactHeader} />
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
+            <TanoshiContainer tanoshiContainerModel={tanoshiFormModel.container}>
 
-            <TanoshiForm {tanoshiFormModel} on:submit={(e) => handleForm(e)}/>
+                <form 
+                    method="{tanoshiFormModel.method}" 
+                    action="{tanoshiFormModel.action}"
+                    name="{tanoshiFormModel.name}"
+                    netlify
+                    data-netlify-honeypot="bot-field"
+                    >
+                    <ul>
+                        {#each tanoshiFormModel.labelsAndInputs as tanoshiLabelAndInputModel}
+                            <li>
+                                <TanoshiLabelAndInput {tanoshiLabelAndInputModel}/>
+                            </li>
+                        {/each}
+                        <li>
+                            <p class="hidden">
+                                <label>
+                                Don’t fill this out if you’re human: <input name="bot-field" />
+                                </label>
+                            </p>
+                        </li>
+                        {#if tanoshiFormModel.netlifyRecaptchaEnabled}
+                            <li class="space-y-2">
+                                <TanoshiContainer tanoshiContainerModel={buttonContainerModel}>
+                                    <div data-netlify-recaptcha="true"></div>
+                                </TanoshiContainer>
+                            </li>
+                        {/if}
+                        <li class='space-y-2'>
+                            <TanoshiContainer tanoshiContainerModel={buttonContainerModel}>
+                                <TanoshiButton tanoshiButtonModel={tanoshiFormModel.submitButton} />
+                            </TanoshiContainer>
+                        </li>
+                    </ul>
+                </form>
+            </TanoshiContainer>
+
+
+            <!-- <TanoshiForm {tanoshiFormModel} on:submit={(e) => handleForm(e)}/> -->
 
             <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
 
