@@ -107,6 +107,7 @@
         .addLabelAndInput(new TanoshiLabelAndInputModel(nameLabel, nameInput, TanoshiTextInput))
         .addLabelAndInput(new TanoshiLabelAndInputModel(informationTypeRadioChoiceGroupLabelModel, informationTypeRadioChoiceGroupModel, TanoshiChoiceGroup))
         .addLabelAndInput(new TanoshiLabelAndInputModel(contentLabel, contentInput, TanoshiTextareaInput))
+        .setNetlifyEnabled(true)
 
     tanoshiFormModel.container
         .setWidth(WIDTHS.W8)
@@ -173,8 +174,8 @@
         <TanoshiContainer tanoshiContainerModel={heroContentContainer}>
             <TanoshiHeader tanoshiHeaderModel={contactHeader} />
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
-            <!-- <TanoshiForm {tanoshiFormModel} /> -->
-                <form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/contact">
+            <TanoshiForm {tanoshiFormModel} />
+                <!-- <form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/contact">
                     <input type="hidden" name="form-name" value="netlify-form-example" />
                     <label for="name">Name</label>
                     <input name="name" id="name" required placeholder="Name" type="text" />
@@ -183,7 +184,7 @@
                     <label for="message">Message</label>
                     <input name="message" id="message" required placeholder="Message" type="text" />
                     <input type="submit" value="Submit" />
-                  </form>
+                  </form> -->
             <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
         </TanoshiContainer>
     </TanoshiContainer>
