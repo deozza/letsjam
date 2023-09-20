@@ -32,8 +32,6 @@
 		TEXT_ALIGNMENT,
 		TanoshiAlertModel,
 		TanoshiAlert,
-		TanoshiLabelAndInput,
-		TanoshiButton,
         } from "tanoshi";
 
 
@@ -109,7 +107,6 @@
         .addLabelAndInput(new TanoshiLabelAndInputModel(nameLabel, nameInput, TanoshiTextInput))
         .addLabelAndInput(new TanoshiLabelAndInputModel(informationTypeRadioChoiceGroupLabelModel, informationTypeRadioChoiceGroupModel, TanoshiChoiceGroup))
         .addLabelAndInput(new TanoshiLabelAndInputModel(contentLabel, contentInput, TanoshiTextareaInput))
-        .setNetlifyEnabled(true)
 
     tanoshiFormModel.container
         .setWidth(WIDTHS.W8)
@@ -122,8 +119,6 @@
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
     
-    const buttonContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R).setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center).setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered);
-
     async function handleForm(e: any){
         submitButton.setLoaderOn()
         submitButton = submitButton
@@ -178,9 +173,8 @@
         <TanoshiContainer tanoshiContainerModel={heroContentContainer}>
             <TanoshiHeader tanoshiHeaderModel={contactHeader} />
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
-            <TanoshiContainer tanoshiContainerModel={tanoshiFormModel.container}>
-
-                <form name="pouet" method="POST" netlify>
+            <!-- <TanoshiForm {tanoshiFormModel} on:submit={(e) => handleForm(e)}/> -->
+                <form name="contact" method="POST" data-netlify="true" action="/">
                     <p>
                       <label>Your Name: <input type="text" name="name" /></label>
                     </p>
@@ -200,33 +194,7 @@
                       <button type="submit">Send</button>
                     </p>
                   </form>
-            </TanoshiContainer>
-
-
-            <!-- <TanoshiForm {tanoshiFormModel} on:submit={(e) => handleForm(e)}/> -->
-
             <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
-
         </TanoshiContainer>
     </TanoshiContainer>
 </section>
-
-<style>
-    form{
-        min-width: 100%;
-    }
-    
-    form > ul{
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    form > ul > li.space-y-2{
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
-    
-    form ul li p.hidden{
-        display: none;
-    }
-    </style>
