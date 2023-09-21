@@ -1,7 +1,3 @@
-<script context="module">
-    export const prerender = true
-</script>
-
 <script lang="ts">
 	import { 
         CONTAINER_ITEMS_SPACING, 
@@ -37,7 +33,6 @@
 		TanoshiAlertModel,
 		TanoshiAlert,
         } from "tanoshi";
-
 
     const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setBackgroundTheme(THEMES.Black)
@@ -111,7 +106,7 @@
         .addLabelAndInput(new TanoshiLabelAndInputModel(nameLabel, nameInput, TanoshiTextInput))
         .addLabelAndInput(new TanoshiLabelAndInputModel(informationTypeRadioChoiceGroupLabelModel, informationTypeRadioChoiceGroupModel, TanoshiChoiceGroup))
         .addLabelAndInput(new TanoshiLabelAndInputModel(contentLabel, contentInput, TanoshiTextareaInput))
-        .setNetlifyEnabled(true)
+        .setPreventDefault(true)
 
     tanoshiFormModel.container
         .setWidth(WIDTHS.W8)
@@ -123,46 +118,45 @@
         .setVisible(false)
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
-    
-    async function handleForm(){
+
+    let formSubmitFailAlert: TanoshiAlertModel = new TanoshiAlertModel('Une erreur est survenue. Veuillez réessayer plus tard.')
+        .setBackgroundTheme(THEMES.Danger)
+        .setVisible(false)
+        .setContainerSize(WIDTHS.W8)
+        .setTitleTheme(THEMES.White)
+
+    async function handleSubmit() {
         submitButton.setLoaderOn()
         submitButton = submitButton
-
         tanoshiFormModel.setSubmitButton(submitButton)
         tanoshiFormModel = tanoshiFormModel
-
-        let formData: FormData = new FormData()
-        tanoshiFormModel.values.forEach((element: {id: string, value: any}) => {
-            formData.append(element.id, element.value)
-        });
-        formData.append('form-name', tanoshiFormModel.name)
-
-        await fetch("/contact/?form", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
+        await fetch('/api/contact', {
+            method: 'POST',
+            body: tanoshiFormModel.formData
         })
-        .then(() => {
-            submitButton.setLoaderOff()
-            submitButton.setIsDisabled(true)
-            submitButton = submitButton 
+        .then( response => {
+            if(response.status === 400){
+                formSubmitFailAlert
+                    .setVisible(true)
+                formSubmitFailAlert = formSubmitFailAlert
 
-            tanoshiFormModel.setSubmitButton(submitButton)
-            tanoshiFormModel = tanoshiFormModel
+                submitButton.setLoaderOff()
+                submitButton = submitButton
+                tanoshiFormModel.setSubmitButton(submitButton)
+                tanoshiFormModel = tanoshiFormModel
+                return
+            }
 
             formSubmitSuccessAlert.setVisible(true)
             formSubmitSuccessAlert = formSubmitSuccessAlert
-        })
-        .catch((error) => {
             submitButton.setLoaderOff()
-            submitButton = submitButton 
-
+            submitButton.setIsDisabled(true)
+            submitButton = submitButton
             tanoshiFormModel.setSubmitButton(submitButton)
             tanoshiFormModel = tanoshiFormModel
-            alert(error)
-        });
-    }
-    
+
+        })
+    } 
 
 </script>
 
@@ -178,18 +172,9 @@
         <TanoshiContainer tanoshiContainerModel={heroContentContainer}>
             <TanoshiHeader tanoshiHeaderModel={contactHeader} />
             <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
-            <TanoshiForm {tanoshiFormModel} on:submit={handleForm}/>
-                <!-- <form name="netlify-form-example" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/contact">
-                    <input type="hidden" name="form-name" value="netlify-form-example" />
-                    <label for="name">Name</label>
-                    <input name="name" id="name" required placeholder="Name" type="text" />
-                    <label for="email">Email</label>
-                    <input name="email" id="email" required placeholder="Email" type="email" />
-                    <label for="message">Message</label>
-                    <input name="message" id="message" required placeholder="Message" type="text" />
-                    <input type="submit" value="Submit" />
-                  </form> -->
+            <TanoshiForm {tanoshiFormModel} on:submit={handleSubmit}/>
             <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
+            <TanoshiAlert tanoshiAlertModel={formSubmitFailAlert} />
         </TanoshiContainer>
     </TanoshiContainer>
 </section>
