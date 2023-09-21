@@ -32,6 +32,7 @@
 		TEXT_ALIGNMENT,
 		TanoshiAlertModel,
 		TanoshiAlert,
+		BUTTON_SIZES,
         } from "tanoshi";
 
     const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
@@ -100,6 +101,7 @@
     let submitButton: TanoshiButtonModel = new TanoshiButtonModel('Envoyer')
         .setType(BUTTON_TYPES.Submit)
         .setBasicTheme(THEMES.Primary)
+        .setSize(BUTTON_SIZES.Md)
 
     let tanoshiFormModel: TanoshiFormModel = new TanoshiFormModel(submitButton, 'contact')
         .addLabelAndInput(new TanoshiLabelAndInputModel(emailLabel, emailInput, TanoshiTextInput))

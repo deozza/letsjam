@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SIZES, THEMES, TanoshiLink, TanoshiLinkModel, TanoshiNavigation, TanoshiNavigationModel } from 'tanoshi';
+	import { CONTAINER_ITEMS_ALIGNMENTS, CONTAINER_ITEMS_SPACING, CONTAINER_ORIENTATIONS, SIZES, TEXT_ALIGNMENT, THEMES, TanoshiContainer, TanoshiContainerModel, TanoshiLink, TanoshiLinkModel, TanoshiNavigation, TanoshiNavigationModel, TanoshiParagraph, TanoshiParagraphModel } from 'tanoshi';
     import './app.css';
 	import type { TanoshiNavigationLinkModel } from 'tanoshi/dist/types/Types';
 
@@ -30,52 +30,29 @@
 			link: logoLink,
 			component: TanoshiLink
 		},
-        {
-			link: devsLink,
-			component: TanoshiLink
-		},
-		{
-			link: coursesLink,
-			component: TanoshiLink
-		},
 	];
 
     const desktopNavbarRightItemModels: Array<TanoshiNavigationLinkModel> = [
 		{
-			link: resumeLink,
-			component: TanoshiLink
-		},
-		{
 			link: contactLink,
 			component: TanoshiLink
-		}
+		},
 	];
 
     const mobileNavbarTopItemModels: Array<TanoshiNavigationLinkModel> = [
 		{
 			link: logoLink,
 			component: TanoshiLink
-		}
+		},
+        {
+			link: contactLink,
+			component: TanoshiLink
+		},
 	];
 
 
     const mobileNavbarCenterItemModels: Array<TanoshiNavigationLinkModel> = [
-        {
-			link: devsLink,
-			component: TanoshiLink
-		},
-		{
-			link: coursesLink,
-			component: TanoshiLink
-		},
-        {
-			link: resumeLink,
-			component: TanoshiLink
-		},
-		{
-			link: contactLink,
-			component: TanoshiLink
-		}
+
 	];
 
 
@@ -88,6 +65,15 @@
         .setTheme(THEMES.Black)
         .setItemsAtLeft(mobileNavbarTopItemModels)
         .setItemsAtCenter(mobileNavbarCenterItemModels);
+
+    const tanoshiFooterContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
+        .setBackgroundTheme(THEMES.Black)
+        .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
+        .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
+
+    const footerParagraph: TanoshiParagraphModel = new TanoshiParagraphModel("© 2023 LETSJAM")
+        .setTheme(THEMES.White)
+        .setAlignment(TEXT_ALIGNMENT.Center)
     
 
 </script>
@@ -98,6 +84,11 @@
 	<slot />
 </main>
 
+<footer>
+    <TanoshiContainer tanoshiContainerModel={tanoshiFooterContainerModel}>
+        <TanoshiParagraph tanoshiParagraphModel={footerParagraph} />
+    </TanoshiContainer>
+</footer>
 <style>
     @media (min-width: 768px) {
         main {
