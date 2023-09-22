@@ -21,12 +21,12 @@
 }
 
 nav {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Anton, sans-serif;
     font-size: large!important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Anton, sans-serif;
 }
 
 p, button, span, label, textarea, input, select, option {

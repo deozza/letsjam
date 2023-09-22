@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { CONTAINER_ITEMS_ALIGNMENTS, CONTAINER_ITEMS_SPACING, CONTAINER_ORIENTATIONS, SIZES, TEXT_ALIGNMENT, THEMES, TanoshiContainer, TanoshiContainerModel, TanoshiLink, TanoshiLinkModel, TanoshiNavigation, TanoshiNavigationModel, TanoshiParagraph, TanoshiParagraphModel } from 'tanoshi';
+    import "@fontsource-variable/oswald";
+    import "@fontsource/anton";
     import './app.css';
 	import type { TanoshiNavigationLinkModel } from 'tanoshi/dist/types/Types';
 
