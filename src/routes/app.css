@@ -52,3 +52,26 @@ p, button, span, label, textarea, input, select, option {
     background-repeat: no-repeat;
     padding: 0!important;
 }
+
+
+@media (max-width: 640px) {
+    .hide-mobile {
+        display: none!important;
+    }
+
+    .text-6xl {
+        font-size: 3rem!important;
+    }
+
+    .text-5xl {
+        font-size: 2.5rem!important;
+    }
+
+    .text-4xl {
+        font-size: 2rem!important;
+    }
+
+    .text-3xl {
+        font-size: 1.75rem!important;
+    }
+}

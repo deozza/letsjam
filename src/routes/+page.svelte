@@ -307,7 +307,7 @@
                     <TanoshiHeader tanoshiHeaderModel={auditDevelopmentHeader} />
                     <TanoshiParagraph tanoshiParagraphModel={auditDevelopmentParagraph} />
                 </TanoshiContainer>
-                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel}>
+                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel} customClasses={'hide-mobile'}>
                     <iconify-icon icon="fontisto:zoom" color="#000" height="100" width="100"></iconify-icon>
                 </TanoshiContainer>
             </TanoshiContainer>
@@ -317,7 +317,7 @@
                     <TanoshiHeader tanoshiHeaderModel={upgradeDevelopmentHeader} />
                     <TanoshiParagraph tanoshiParagraphModel={upgradeDevelopmentParagraph} />
                 </TanoshiContainer>
-                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel}>
+                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel} customClasses={'hide-mobile'}>
                     <iconify-icon icon="mdi:creation" color="#000" height="100" width="100"></iconify-icon>
 
                 </TanoshiContainer>
@@ -328,7 +328,7 @@
                     <TanoshiParagraph tanoshiParagraphModel={fulldevDevelopmentParagraph} />
 
                 </TanoshiContainer>
-                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel}>
+                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel} customClasses={'hide-mobile'}>
                     <iconify-icon icon="fluent-mdl2:edit-create" color="#000" height="100" width="100"></iconify-icon>
                 </TanoshiContainer>
             </TanoshiContainer>
@@ -347,7 +347,7 @@
                     <TanoshiHeader tanoshiHeaderModel={backendFormationHeader} />
                     <TanoshiParagraph tanoshiParagraphModel={backendFormationParagraph} />
                 </TanoshiContainer>
-                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel}>
+                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel} customClasses={'hide-mobile'}>
                     <iconify-icon icon="mdi:server" style="color: #fff" height="100" width="100"></iconify-icon>
                 </TanoshiContainer>
             </TanoshiContainer>
@@ -357,7 +357,7 @@
                     <TanoshiHeader tanoshiHeaderModel={frontendFormationHeader} />
                     <TanoshiParagraph tanoshiParagraphModel={frontendFormationParagraph} />
                 </TanoshiContainer>
-                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel}>
+                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel} customClasses={'hide-mobile'}>
                     <iconify-icon icon="mdi:language-html5" style="color: #fff" height="100" width="100"></iconify-icon>
 
                 </TanoshiContainer>
@@ -368,7 +368,7 @@
                     <TanoshiParagraph tanoshiParagraphModel={toolsParagraph} />
 
                 </TanoshiContainer>
-                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel}>
+                <TanoshiContainer tanoshiContainerModel={serviceHalfRightContainerModel} customClasses={'hide-mobile'}>
                     <iconify-icon icon="fa:gears" style="color: #fff" height="100" width="100"></iconify-icon>
                 </TanoshiContainer>
             </TanoshiContainer>            
