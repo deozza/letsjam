@@ -1,27 +1,15 @@
 <script lang="ts">
-	import { CONTAINER_ITEMS_ALIGNMENTS, CONTAINER_ITEMS_SPACING, CONTAINER_ORIENTATIONS, SIZES, TEXT_ALIGNMENT, THEMES, TanoshiContainer, TanoshiContainerModel, TanoshiLink, TanoshiLinkModel, TanoshiNavigation, TanoshiNavigationModel, TanoshiParagraph, TanoshiParagraphModel } from 'tanoshi';
+	import { CONTAINER_ITEMS_ALIGNMENTS, CONTAINER_ITEMS_SPACING, CONTAINER_ORIENTATIONS, HEIGHTS, SIZES, TEXT_ALIGNMENT, THEMES, TanoshiContainer, TanoshiContainerModel, TanoshiLink, TanoshiLinkModel, TanoshiNavigation, TanoshiNavigationModel, TanoshiParagraph, TanoshiParagraphModel } from 'tanoshi';
     import "@fontsource-variable/oswald";
-    import "@fontsource/anton";
+    import '@fontsource-variable/montserrat';
     import './app.css';
 	import type { TanoshiNavigationLinkModel } from 'tanoshi/dist/types/Types';
 
 
-    const devsLink: TanoshiLinkModel = new TanoshiLinkModel('Développeur web')
-        .setLink('/website-creation')
-        .setTheme(THEMES.Primary)
-        .setDisplaySize(SIZES.Lg);
-    const coursesLink: TanoshiLinkModel = new TanoshiLinkModel('Formations')
-        .setLink('/courses')
-        .setTheme(THEMES.Primary)
-        .setDisplaySize(SIZES.Lg);
     const logoLink: TanoshiLinkModel = new TanoshiLinkModel('LETSJAM')
         .setLink('/')
         .setTheme(THEMES.Primary)
         .setDisplaySize(SIZES['2Xl']);
-    const resumeLink: TanoshiLinkModel = new TanoshiLinkModel('CV')
-        .setLink('/resume')
-        .setTheme(THEMES.Primary)
-        .setDisplaySize(SIZES.Lg);
     const contactLink: TanoshiLinkModel = new TanoshiLinkModel('Me contacter')
         .setLink('/contact')
         .setTheme(THEMES.Primary)
@@ -52,12 +40,6 @@
 		},
 	];
 
-
-    const mobileNavbarCenterItemModels: Array<TanoshiNavigationLinkModel> = [
-
-	];
-
-
     const tanoshiDesktopNavigationModel: TanoshiNavigationModel = new TanoshiNavigationModel()
         .setTheme(THEMES.Black)
         .setItemsAtLeft(desktopNavbarLeftItemModels)
@@ -66,12 +48,12 @@
     const tanoshiMobileNavigationModel: TanoshiNavigationModel = new TanoshiNavigationModel()
         .setTheme(THEMES.Black)
         .setItemsAtLeft(mobileNavbarTopItemModels)
-        .setItemsAtCenter(mobileNavbarCenterItemModels);
 
-    const tanoshiFooterContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
+    const tanoshiMainContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setBackgroundTheme(THEMES.Black)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
+        .setHeight(HEIGHTS.MINH100VH)
 
     const footerParagraph: TanoshiParagraphModel = new TanoshiParagraphModel("© 2023 LETSJAM")
         .setTheme(THEMES.White)
@@ -82,19 +64,27 @@
 
 
 <TanoshiNavigation tanoshiDesktopNavigationModel={tanoshiDesktopNavigationModel}  tanoshiMobileNavigationModel={tanoshiMobileNavigationModel} />
-<main>
-	<slot />
-</main>
 
-<footer>
-    <TanoshiContainer tanoshiContainerModel={tanoshiFooterContainerModel}>
+<TanoshiContainer tanoshiContainerModel={tanoshiMainContainerModel} customClasses={'no-padding'}>
+    <main>
+        <slot />
+    </main>
+    
+    <footer>
         <TanoshiParagraph tanoshiParagraphModel={footerParagraph} />
-    </TanoshiContainer>
-</footer>
+    </footer>
+</TanoshiContainer>
+
 <style>
+    main{
+        flex: 1;
+    }
     @media (min-width: 768px) {
         main {
             padding-top: 96px;
         }
+    }
+    footer {
+        width: 100%;
     }
 </style>

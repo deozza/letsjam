@@ -28,11 +28,8 @@
 
 <section id="hero">
 
-    <TanoshiContainer tanoshiContainerModel={heroBackgroundContainer}>
-
-        <TanoshiContainer {tanoshiContainerModel}>
-            <TanoshiHeader {tanoshiHeaderModel} />
-            <TanoshiLink {tanoshiLinkModel} />
-        </TanoshiContainer>
+    <TanoshiContainer {tanoshiContainerModel}>
+        <TanoshiHeader {tanoshiHeaderModel} />
+        <TanoshiLink {tanoshiLinkModel} />
     </TanoshiContainer>
 </section>
