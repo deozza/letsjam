@@ -21,12 +21,14 @@
 }
 
 nav {
-    font-family: Anton, sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: large!important;
+    font-weight: 900;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Anton, sans-serif;
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
 }
 
 p, button, span, label, textarea, input, select, option {
@@ -49,6 +51,22 @@ p, button, span, label, textarea, input, select, option {
     background-image: url(https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    padding: 0!important;
+}
+
+.services-dev-bg-image {
+    background-image: url(https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1816&q=80);
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    padding: 0!important;
+}
+
+.services-formations-bg-image {
+    background-image: url(https://images.unsplash.com/photo-1605711285791-0219e80e43a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80);
+    background-size: cover;
+    background-position: right 25% ;
     background-repeat: no-repeat;
     padding: 0!important;
 }

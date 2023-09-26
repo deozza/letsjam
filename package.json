@@ -40,8 +40,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/montserrat": "^5.0.9",
 		"@fontsource-variable/oswald": "^5.0.12",
-		"@fontsource/anton": "^5.0.12",
 		"firebase": "^10.4.0"
 	}
 }

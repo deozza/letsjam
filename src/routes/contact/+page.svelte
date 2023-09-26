@@ -35,10 +35,6 @@
 		BUTTON_SIZES,
         } from "tanoshi";
 
-    const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
-        .setBackgroundTheme(THEMES.Black)
-        .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
-        .setHeight(HEIGHTS.MINH100VH)
 
     const heroContentContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
@@ -169,14 +165,12 @@
 
 <section id="hero">
 
-    <TanoshiContainer tanoshiContainerModel={heroBackgroundContainer}>
 
-        <TanoshiContainer tanoshiContainerModel={heroContentContainer}>
-            <TanoshiHeader tanoshiHeaderModel={contactHeader} />
-            <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
-            <TanoshiForm {tanoshiFormModel} on:submit={handleSubmit}/>
-            <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
-            <TanoshiAlert tanoshiAlertModel={formSubmitFailAlert} />
-        </TanoshiContainer>
+    <TanoshiContainer tanoshiContainerModel={heroContentContainer}>
+        <TanoshiHeader tanoshiHeaderModel={contactHeader} />
+        <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
+        <TanoshiForm {tanoshiFormModel} on:submit={handleSubmit}/>
+        <TanoshiAlert tanoshiAlertModel={formSubmitSuccessAlert} />
+        <TanoshiAlert tanoshiAlertModel={formSubmitFailAlert} />
     </TanoshiContainer>
 </section>
