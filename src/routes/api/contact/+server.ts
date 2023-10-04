@@ -6,7 +6,8 @@ export async function POST({ request}) {
 	const formJSON = Object.fromEntries(data.entries());
 	const payload = {
 		to: import.meta.env.VITE_CONTACT_EMAIL,
-		from: formJSON.name + ' ' + formJSON.email,
+		from: formJSON.email,
+		name: formJSON.name,
 		message: {
 			subject: "CONTACT DE " + formJSON.name + ' <' + formJSON.email + "> : " + formJSON.informationTypeChoice,
 			text: formJSON.content,
