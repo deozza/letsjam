@@ -8,7 +8,7 @@ export async function POST({ request}) {
 		to: import.meta.env.VITE_CONTACT_EMAIL,
 		from: formJSON.name + ' ' + formJSON.email,
 		message: {
-			subject: formJSON.informationTypeChoice,
+			subject: "CONTACT DE " + formJSON.name + ' <' + formJSON.email + "> : " + formJSON.informationTypeChoice,
 			text: formJSON.content,
 			html: formJSON.content
 		},
