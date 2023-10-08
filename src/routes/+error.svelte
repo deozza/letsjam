@@ -1,9 +1,18 @@
 <script lang="ts">
-	import { TanoshiContainerModel, CONTAINER_ORIENTATIONS, THEMES, CONTAINER_ITEMS_SPACING, HEIGHTS, CONTAINER_ITEMS_ALIGNMENTS, TanoshiHeaderModel, HEADER_TAGS, SIZES, TanoshiParagraphModel, TEXT_ALIGNMENT, TanoshiAlert, TanoshiContainer, TanoshiForm, TanoshiHeader, TanoshiParagraph, TanoshiLinkModel, TanoshiLink } from 'tanoshi';
-    const heroBackgroundContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
-        .setBackgroundTheme(THEMES.Black)
-        .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
-        .setHeight(HEIGHTS.MINH100VH)
+	import { 
+        TanoshiContainerModel,
+        CONTAINER_ORIENTATIONS,
+        THEMES,
+        CONTAINER_ITEMS_SPACING,
+        CONTAINER_ITEMS_ALIGNMENTS, 
+        TanoshiHeaderModel, 
+        HEADER_TAGS, 
+        SIZES,
+        TanoshiHeader,
+        TanoshiLinkModel,
+        TanoshiLink,
+        TanoshiContainerMaterial 
+    } from 'tanoshi';
 
     const tanoshiContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
@@ -28,8 +37,8 @@
 
 <section id="hero">
 
-    <TanoshiContainer {tanoshiContainerModel}>
+    <TanoshiContainerMaterial {tanoshiContainerModel}>
         <TanoshiHeader {tanoshiHeaderModel} />
         <TanoshiLink {tanoshiLinkModel} />
-    </TanoshiContainer>
+    </TanoshiContainerMaterial>
 </section>
