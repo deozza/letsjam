@@ -133,16 +133,16 @@
         .setBorderTheme(THEMES.Black)
 
     let formSubmitSuccessAlert: TanoshiAlertModel = new TanoshiAlertModel('Votre message a bien été envoyé.')
-        .setBackgroundTheme(THEMES.Primary)
+        .setBackgroundTheme(THEMES.Black)
         .setVisible(false)
         .setContainerSize(WIDTHS.W8)
         .setTitleTheme(THEMES.White)
 
     let formSubmitFailAlert: TanoshiAlertModel = new TanoshiAlertModel('Une erreur est survenue. Veuillez réessayer plus tard.')
-        .setBackgroundTheme(THEMES.Danger)
+        .setBackgroundTheme(THEMES.Black)
         .setVisible(false)
         .setContainerSize(WIDTHS.W8)
-        .setTitleTheme(THEMES.White)
+        .setTitleTheme(THEMES.Danger)
 
     async function handleSubmit() {
         submitButton.setLoaderOn()
