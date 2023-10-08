@@ -22,6 +22,9 @@
 		TanoshiImageModel,
 		BUTTON_SIZES,
 		TanoshiImage,
+		TanoshiContainerNeumorphism,
+		CONTAINER_BORDERS,
+		TanoshiButtonNeumorphism,
         } from "tanoshi";
 
    
@@ -77,20 +80,22 @@
         .setAlignment(TEXT_ALIGNMENT.Justify)
         .setTheme(THEMES.White)
 
-    const aboutImageContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
-        .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Start)
+    const aboutImageContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R)
+        .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
+        .setHeight(HEIGHTS.MINH75VH)
 
     const serviceItemHeaderContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Around)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
 
-    const serviceDevRowContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
+    const serviceDevRowContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setBackgroundTheme(THEMES.Black)
         .setMobileItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setHasPadding(false)
+        .setHeight(HEIGHTS.MINH75VH)
 
     const servicesDevContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R)
         .setMobileOrientation(CONTAINER_ORIENTATIONS.C)
@@ -110,6 +115,10 @@
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Around)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setWidth(WIDTHS.W3)
+        .setMobileWidth(WIDTHS.W10)
+        .setBackgroundTheme(THEMES.Black)
+        .setBorderShape(CONTAINER_BORDERS.Md)
+        .setBorderTheme(THEMES.Black)
 
     const auditDevelopmentHeader: TanoshiHeaderModel = new TanoshiHeaderModel('Audit de votre site')
         .setSize(SIZES["2Xl"])
@@ -145,23 +154,23 @@
         .setTheme(THEMES.White)
 
     const devKnowMoreButton: TanoshiButtonModel = new TanoshiButtonModel('En savoir plus')
-        .setBackgroundTheme(THEMES.Transparent)
-        .setBackgroundHoverTheme(THEMES.Primary)
+        .setBasicTheme(THEMES.Black)
         .setTextTheme(THEMES.Primary)
-        .setTextHoverTheme(THEMES.White)
-        .setBorderTheme(THEMES.Primary)
-        .setBorderHoverTheme(THEMES.Primary)
+        .setTextHoverTheme(THEMES.Primary)
         .setSize(BUTTON_SIZES.Lg)
+        .setShape(CONTAINER_BORDERS.Full)
+
     const devKnowMoreLink: TanoshiLinkModel = new TanoshiLinkModel('dev')
         .setLink('/contact')
-    const devKnowMoreLinkAsButton: TanoshiLinkAsButtonModel = new TanoshiLinkAsButtonModel(devKnowMoreLink, devKnowMoreButton)
+    const devKnowMoreLinkAsButton: TanoshiLinkAsButtonModel = new TanoshiLinkAsButtonModel(devKnowMoreLink, devKnowMoreButton).setTanoshiButtonComponent(TanoshiButtonNeumorphism)
 
-    const serviceFormationRowContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
+    const serviceFormationRowContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setBackgroundTheme(THEMES.White)
         .setMobileItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setHasPadding(false)
+        .setHeight(HEIGHTS.MINH75VH)
 
     const servicesFormationHeader: TanoshiHeaderModel = new TanoshiHeaderModel('Formations')
         .setSize(SIZES["6Xl"])
@@ -173,6 +182,10 @@
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Around)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setWidth(WIDTHS.W3)
+        .setMobileWidth(WIDTHS.W10)
+        .setBackgroundTheme(THEMES.White)
+        .setBorderShape(CONTAINER_BORDERS.Md)
+        .setBorderTheme(THEMES.White)
 
     const backendFormationHeader: TanoshiHeaderModel = new TanoshiHeaderModel('Formation backend')
         .setSize(SIZES["2Xl"])
@@ -212,20 +225,21 @@
 
     const formationKnowMoreButton: TanoshiButtonModel = new TanoshiButtonModel('En savoir plus')
         .setSize(BUTTON_SIZES.Lg)
-        .setBackgroundTheme(THEMES.Transparent)
-        .setBackgroundHoverTheme(THEMES.Black)
-        .setTextTheme(THEMES.Black)
-        .setTextHoverTheme(THEMES.White)
-        .setBorderTheme(THEMES.Black)
-        .setBorderHoverTheme(THEMES.Black)
+        .setBasicTheme(THEMES.White)
+        .setTextTheme(THEMES.Primary)
+        .setTextHoverTheme(THEMES.Primary)
+        .setSize(BUTTON_SIZES.Lg)
+        .setShape(CONTAINER_BORDERS.Full)
+
     const formationKnowMoreLink: TanoshiLinkModel = new TanoshiLinkModel('Formations')
         .setLink('/contact')
-    const formationKnowMoreLinkAsButton: TanoshiLinkAsButtonModel = new TanoshiLinkAsButtonModel(formationKnowMoreLink, formationKnowMoreButton)
+    const formationKnowMoreLinkAsButton: TanoshiLinkAsButtonModel = new TanoshiLinkAsButtonModel(formationKnowMoreLink, formationKnowMoreButton).setTanoshiButtonComponent(TanoshiButtonNeumorphism)
 
-    const contactColumnContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
+    const contactColumnContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R)
         .setBackgroundTheme(THEMES.Primary)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
+        .setHeight(HEIGHTS.MINH33VH)
         
     const contactHeaderModel: TanoshiHeaderModel = new TanoshiHeaderModel('Une question ? Contactez-moi !')
         .setSize(SIZES["6Xl"])
@@ -247,11 +261,15 @@
 
     const contactButton: TanoshiButtonModel = new TanoshiButtonModel('Me contacter')
         .setSize(BUTTON_SIZES.Lg)
-        .setBasicTheme(THEMES.Black)
+        .setBasicTheme(THEMES.Primary)
+        .setTextTheme(THEMES.Black)
+        .setTextHoverTheme(THEMES.Black)
+        .setSize(BUTTON_SIZES.Lg)
+        .setShape(CONTAINER_BORDERS.Full)
 
     const contactLink: TanoshiLinkModel = new TanoshiLinkModel('Contacter')
         .setLink('/contact')
-    const contactLinkAsButton: TanoshiLinkAsButtonModel = new TanoshiLinkAsButtonModel(contactLink, contactButton)
+    const contactLinkAsButton: TanoshiLinkAsButtonModel = new TanoshiLinkAsButtonModel(contactLink, contactButton).setTanoshiButtonComponent(TanoshiButtonNeumorphism)
 
 </script>
 
@@ -290,29 +308,29 @@
         <TanoshiHeader tanoshiHeaderModel={servicesDevelopmentHeader} />
 
         <TanoshiContainerMaterial tanoshiContainerModel={servicesDevContainer} >
-            <TanoshiContainerMaterial tanoshiContainerModel={serviceDevItemContainer}>
+            <TanoshiContainerNeumorphism tanoshiContainerModel={serviceDevItemContainer} customClasses={'margin-y-4'}>
                 <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={auditDevelopmentHeader} />
                     <iconify-icon icon="fontisto:zoom" style="color: #fff;" height="40" width="40"></iconify-icon>
                 </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={auditDevelopmentParagraph} />
-            </TanoshiContainerMaterial>
+            </TanoshiContainerNeumorphism>
 
-            <TanoshiContainerMaterial tanoshiContainerModel={serviceDevItemContainer}>
+            <TanoshiContainerNeumorphism tanoshiContainerModel={serviceDevItemContainer} customClasses={'margin-y-4'}>
                 <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={upgradeDevelopmentHeader} />
                     <iconify-icon icon="mdi:creation" style="color: #fff;" height="50" width="50"></iconify-icon>
                 </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={upgradeDevelopmentParagraph} />
-            </TanoshiContainerMaterial>
+            </TanoshiContainerNeumorphism>
 
-            <TanoshiContainerMaterial tanoshiContainerModel={serviceDevItemContainer}>
+            <TanoshiContainerNeumorphism tanoshiContainerModel={serviceDevItemContainer} customClasses={'margin-y-4'}>
                 <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={fulldevDevelopmentHeader} />
                     <iconify-icon icon="fluent-mdl2:edit-create" style="color: #fff;" height="50" width="50"></iconify-icon>
                 </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={fulldevDevelopmentParagraph} />
-            </TanoshiContainerMaterial>
+            </TanoshiContainerNeumorphism>
 
         </TanoshiContainerMaterial>
         <TanoshiLinkAsButton tanoshiLinkModel={devKnowMoreLinkAsButton} />
@@ -326,32 +344,33 @@
         <TanoshiHeader tanoshiHeaderModel={servicesFormationHeader} />
         <TanoshiContainerMaterial tanoshiContainerModel={servicesDevContainer} >
 
-            <TanoshiContainerMaterial tanoshiContainerModel={serviceFormationItemContainer}>
+            <TanoshiContainerNeumorphism tanoshiContainerModel={serviceFormationItemContainer} customClasses={'margin-y-4'}>
                 <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={backendFormationHeader} />
                     <iconify-icon icon="mdi:server" height="50" width="50"></iconify-icon>
                 </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={backendFormationParagraph} />
-            </TanoshiContainerMaterial>
+            </TanoshiContainerNeumorphism>
 
-            <TanoshiContainerMaterial tanoshiContainerModel={serviceFormationItemContainer}>
+            <TanoshiContainerNeumorphism tanoshiContainerModel={serviceFormationItemContainer} customClasses={'margin-y-4'}>
                 <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={frontendFormationHeader} />
                     <iconify-icon icon="mdi:language-html5" height="50" width="50"></iconify-icon>
                 </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={frontendFormationParagraph} />
-            </TanoshiContainerMaterial>
+            </TanoshiContainerNeumorphism>
 
-            <TanoshiContainerMaterial tanoshiContainerModel={serviceFormationItemContainer}>
+            <TanoshiContainerNeumorphism tanoshiContainerModel={serviceFormationItemContainer} customClasses={'margin-y-4'}>
                 <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={toolsFormationHeader} />
                     <iconify-icon icon="fa:gears" height="50" width="50"></iconify-icon>
                 </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={toolsParagraph} />
-            </TanoshiContainerMaterial>
+            </TanoshiContainerNeumorphism>
         </TanoshiContainerMaterial>
         <TanoshiLinkAsButton tanoshiLinkModel={formationKnowMoreLinkAsButton} />
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#D97734" fill-opacity="1" d="M0,192L48,192C96,192,192,192,288,165.3C384,139,480,85,576,85.3C672,85,768,139,864,144C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>    </TanoshiContainerMaterial>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#D97734" fill-opacity="1" d="M0,192L48,192C96,192,192,192,288,165.3C384,139,480,85,576,85.3C672,85,768,139,864,144C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>   
+     </TanoshiContainerMaterial>
 
 </section>
 

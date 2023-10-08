@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { 
+	CONTAINER_BORDERS,
         CONTAINER_ITEMS_ALIGNMENTS, 
         CONTAINER_ITEMS_SPACING, 
         CONTAINER_ORIENTATIONS, 
@@ -7,10 +8,14 @@
         SIZES, 
         TEXT_ALIGNMENT, 
         THEMES, 
+        TanoshiButtonModel, 
+        TanoshiButtonNeumorphism, 
         TanoshiContainerMaterial, 
         TanoshiContainerModel, 
         TanoshiDesktopNavigationModel, 
         TanoshiLink, 
+        TanoshiLinkAsButton, 
+        TanoshiLinkAsButtonModel, 
         TanoshiLinkModel, 
         TanoshiMobileNavigationModel, 
         TanoshiNavigationMaterial, 
@@ -28,8 +33,13 @@
         .setDisplaySize(SIZES['2Xl']);
     const contactLink: TanoshiLinkModel = new TanoshiLinkModel('Me contacter')
         .setLink('/contact')
-        .setTheme(THEMES.Primary)
-        .setDisplaySize(SIZES.Lg);
+    const contactButton: TanoshiButtonModel = new TanoshiButtonModel('Me contacter')
+        .setBasicTheme(THEMES.Black)
+        .setTextTheme(THEMES.Primary)
+        .setTextHoverTheme(THEMES.Primary)
+        .setShape(CONTAINER_BORDERS.Full)
+
+    const contactLinkAsAButton: TanoshiLinkAsButtonModel = new TanoshiLinkAsButtonModel(contactLink, contactButton).setTanoshiButtonComponent(TanoshiButtonNeumorphism)
    
     const desktopNavbarLeftItemModels: Array<TanoshiNavigationLinkModel> = [
 		{
@@ -40,8 +50,8 @@
 
     const desktopNavbarRightItemModels: Array<TanoshiNavigationLinkModel> = [
 		{
-			link: contactLink,
-			component: TanoshiLink
+			link: contactLinkAsAButton,
+			component: TanoshiLinkAsButton
 		},
 	];
 

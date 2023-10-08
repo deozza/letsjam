@@ -1,23 +1,26 @@
 :root{
+    --primary-light: 229, 162, 118;
     --primary: 217, 119, 52;
-    --primary-dark: 108, 68, 28;
+    --primary-dark: 188, 97, 36;
     --primary-text-header: 217, 119, 52;
-    --secondary: 107 114 128;
-    --secondary-dark: 75 85 99;
-    --success: 34 197 94;
-    --success-dark: 22 163 74;
-    --warning: 234 179 8;
-    --warning-dark: 202 138 4;
-    --danger: 239 68 68;
-    --danger-dark: 220 38 38;
-    --info: 103 232 249;
-    --info-dark: 34 211 238;
-    --white: 255 255 255;
-    --white-dark: 100 116 139;
+    --secondary: 107, 114, 128;
+    --secondary-dark: 75, 85, 99;
+    --success: 34, 197, 94;
+    --success-dark: 22, 163, 74;
+    --warning: 234, 179. 8;
+    --warning-dark: 202, 138, 4;
+    --danger: 239, 68, 68;
+    --danger-dark: 220, 38, 38;
+    --info: 103, 232, 249;
+    --info-dark: 34, 211, 238;
+    --white-light: 255, 255, 255;
+    --white: 225, 225, 225;
+    --white-dark: 194, 194, 194;
+    --black-light: 72, 71, 71;
     --black: 60, 59, 59;
-    --black-dark: 4, 4, 4;
+    --black-dark: 42, 40, 40;
     --black-bg-button-hover: 4, 4, 4;
-    --white-text-header: 255 255 255;
+    --white-text-header: 255, 255, 255;
 }
 
 nav {
@@ -51,6 +54,11 @@ p, button, span, label, textarea, input, select, option {
     padding: 0!important;
     background-attachment: fixed;
 
+}
+
+.margin-y-4{
+    margin-top: 2rem!important;
+    margin-bottom: 2rem!important;
 }
 
 @media (max-width: 640px) {

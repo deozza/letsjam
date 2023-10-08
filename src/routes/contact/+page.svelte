@@ -13,9 +13,8 @@
 		BUTTON_TYPES,
 		TanoshiFormModel,
 		TanoshiLabelAndInputModel,
-		TanoshiTextInputMaterial,
+		TanoshiTextInputNeumorphism,
 		TanoshiTextareaInputMaterial,
-		TanoshiFormMaterial,
 		WIDTHS,
 		CONTAINER_BORDERS,
 		TanoshiChoiceInputModel,
@@ -32,8 +31,11 @@
 		TanoshiAlertModel,
 		TanoshiAlertMaterial,
 		BUTTON_SIZES,
+		TanoshiFormNeumorphism,
+		TanoshiButtonNeumorphism,
+		TanoshiTextareaInputNeumorphism,
+		TanoshiAlertNeumorphism,
         } from "tanoshi";
-
 
     const heroContentContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
@@ -53,6 +55,10 @@
         .setType(INPUT_TEXT_TYPES.Email)
         .setPlaceholder('Votre email')
         .setRequired(true)
+        .setBackgroundTheme(THEMES.Black)
+        .setBorderShape(CONTAINER_BORDERS.Full)
+        .setBorderTheme(THEMES.Black)
+        .setTextTheme(THEMES.White)
     const emailLabel: TanoshiLabelModel = new TanoshiLabelModel()
         .initWithInput(emailInput)
         .setValue('Email :')
@@ -62,6 +68,10 @@
         .setType(INPUT_TEXT_TYPES.Text)
         .setPlaceholder('Votre nom')
         .setRequired(true)
+        .setBackgroundTheme(THEMES.Black)
+        .setBorderShape(CONTAINER_BORDERS.Full)
+        .setBorderTheme(THEMES.Black)
+        .setTextTheme(THEMES.White)
     const nameLabel: TanoshiLabelModel = new TanoshiLabelModel()
         .initWithInput(nameInput)
         .setValue('Votre nom :')
@@ -92,6 +102,10 @@
         .setName('content')
         .setRequired(true)
         .setPlaceholder('Votre message')
+        .setBackgroundTheme(THEMES.Black)
+        .setBorderShape(CONTAINER_BORDERS.Full)
+        .setBorderTheme(THEMES.Black)
+        .setTextTheme(THEMES.White)
     const contentLabel: TanoshiLabelModel = new TanoshiLabelModel()
         .initWithInput(contentInput)
         .setValue('Votre message :')
@@ -99,20 +113,24 @@
         
     let submitButton: TanoshiButtonModel = new TanoshiButtonModel('Envoyer')
         .setType(BUTTON_TYPES.Submit)
-        .setBasicTheme(THEMES.Primary)
+        .setBasicTheme(THEMES.Black)
+        .setTextTheme(THEMES.Primary)
+        .setTextHoverTheme(THEMES.Primary)
         .setSize(BUTTON_SIZES.Md)
+        .setShape(CONTAINER_BORDERS.Full)
 
     let tanoshiFormModel: TanoshiFormModel = new TanoshiFormModel(submitButton, 'contact')
-        .addLabelAndInput(new TanoshiLabelAndInputModel(emailLabel, emailInput, TanoshiTextInputMaterial))
-        .addLabelAndInput(new TanoshiLabelAndInputModel(nameLabel, nameInput, TanoshiTextInputMaterial))
+        .addLabelAndInput(new TanoshiLabelAndInputModel(emailLabel, emailInput, TanoshiTextInputNeumorphism))
+        .addLabelAndInput(new TanoshiLabelAndInputModel(nameLabel, nameInput, TanoshiTextInputNeumorphism))
         .addLabelAndInput(new TanoshiLabelAndInputModel(informationTypeRadioChoiceGroupLabelModel, informationTypeRadioChoiceGroupModel, TanoshiChoiceGroup))
-        .addLabelAndInput(new TanoshiLabelAndInputModel(contentLabel, contentInput, TanoshiTextareaInputMaterial))
+        .addLabelAndInput(new TanoshiLabelAndInputModel(contentLabel, contentInput, TanoshiTextareaInputNeumorphism))
         .setPreventDefault(true)
 
     tanoshiFormModel.container
         .setWidth(WIDTHS.W8)
-        .setBorderTheme(THEMES.Primary)
         .setBorderShape(CONTAINER_BORDERS.Md)
+        .setBackgroundTheme(THEMES.Black)
+        .setBorderTheme(THEMES.Black)
 
     let formSubmitSuccessAlert: TanoshiAlertModel = new TanoshiAlertModel('Votre message a bien été envoyé.')
         .setBackgroundTheme(THEMES.Primary)
@@ -172,8 +190,8 @@
     <TanoshiContainerMaterial tanoshiContainerModel={heroContentContainer}>
         <TanoshiHeader tanoshiHeaderModel={contactHeader} />
         <TanoshiParagraph tanoshiParagraphModel={contactParagraph} />
-        <TanoshiFormMaterial {tanoshiFormModel} on:submit={handleSubmit}/>
-        <TanoshiAlertMaterial tanoshiAlertModel={formSubmitSuccessAlert} />
-        <TanoshiAlertMaterial tanoshiAlertModel={formSubmitFailAlert} />
+        <TanoshiFormNeumorphism {tanoshiFormModel} tanoshiButtonComponent={TanoshiButtonNeumorphism} on:submit={handleSubmit}/>
+        <TanoshiAlertNeumorphism tanoshiAlertModel={formSubmitSuccessAlert} />
+        <TanoshiAlertNeumorphism tanoshiAlertModel={formSubmitFailAlert} />
     </TanoshiContainerMaterial>
 </section>
