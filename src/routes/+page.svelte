@@ -10,7 +10,7 @@
         THEMES, 
         WIDTHS,
         TanoshiButtonModel, 
-        TanoshiContainer, 
+        TanoshiContainerMaterial, 
         TanoshiContainerModel, 
         TanoshiHeader, 
         TanoshiHeaderModel,
@@ -19,7 +19,6 @@
         TanoshiParagraphModel,
 		TanoshiLinkAsButtonModel,
 		TanoshiLinkAsButton,
-		CONTAINER_BORDERS,
 		TanoshiImageModel,
 		BUTTON_SIZES,
 		TanoshiImage,
@@ -91,6 +90,7 @@
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setBackgroundTheme(THEMES.Black)
         .setMobileItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
+        .setHasPadding(false)
 
     const servicesDevContainer: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.R)
         .setMobileOrientation(CONTAINER_ORIENTATIONS.C)
@@ -98,6 +98,7 @@
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setMobileItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setWidth(WIDTHS.W12)
+        .setHasPadding(false)
 
     const servicesDevelopmentHeader: TanoshiHeaderModel = new TanoshiHeaderModel('Développement')
         .setSize(SIZES["6Xl"])
@@ -160,6 +161,7 @@
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setBackgroundTheme(THEMES.White)
         .setMobileItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
+        .setHasPadding(false)
 
     const servicesFormationHeader: TanoshiHeaderModel = new TanoshiHeaderModel('Formations')
         .setSize(SIZES["6Xl"])
@@ -236,6 +238,7 @@
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setWidth(WIDTHS.W6)
         .setMobileItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
+        .setHasPadding(false)
     
     const contactParagraphModel : TanoshiParagraphModel = new TanoshiParagraphModel("Une question sur votre projet ? Un site à auditer ? Un cours à animer ? N'hésitez pas à me contacter pour en discuter.")
         .setAlignment(TEXT_ALIGNMENT.Center)
@@ -258,110 +261,110 @@
 </svelte:head>
 
 <section id="hero">
-   <TanoshiContainer tanoshiContainerModel={heroRowContainer}>
-        <TanoshiContainer tanoshiContainerModel={heroLeftContainer}>
+   <TanoshiContainerMaterial tanoshiContainerModel={heroRowContainer}>
+        <TanoshiContainerMaterial tanoshiContainerModel={heroLeftContainer}>
             <TanoshiHeader tanoshiHeaderModel={heroHeader} />
             <p class="sub-header text-2xl h-black text-left">Audit, conception, développement, hébergement, maintenance pour les <span class="text-3xl">artisans de la musique</span></p>
-        </TanoshiContainer>
-        <TanoshiContainer tanoshiContainerModel={heroRightContainer}>
+        </TanoshiContainerMaterial>
+        <TanoshiContainerMaterial tanoshiContainerModel={heroRightContainer}>
             <TanoshiImage tanoshiImageModel={heroImage} />
-        </TanoshiContainer>
-    </TanoshiContainer>
+        </TanoshiContainerMaterial>
+    </TanoshiContainerMaterial>
 </section>
 
 <section id="about">
-    <TanoshiContainer tanoshiContainerModel={aboutImageContainer} customClasses={'about-bg-image'}>
-        <TanoshiContainer tanoshiContainerModel={aboutParagraphsContainer}>
+    <TanoshiContainerMaterial tanoshiContainerModel={aboutImageContainer} customClasses={'about-bg-image'}>
+        <TanoshiContainerMaterial tanoshiContainerModel={aboutParagraphsContainer}>
             <TanoshiHeader tanoshiHeaderModel={aboutHeaderModel} />
 
             <TanoshiParagraph tanoshiParagraphModel={aboutParagraphModel} />
             <TanoshiParagraph tanoshiParagraphModel={aboutParagraph2Model} />
             <TanoshiParagraph tanoshiParagraphModel={aboutCourseParagraphModel} />
-        </TanoshiContainer>
-    </TanoshiContainer>    
+        </TanoshiContainerMaterial>
+    </TanoshiContainerMaterial>    
 </section>
 
 <section id="services-dev">
     
-    <TanoshiContainer tanoshiContainerModel={serviceDevRowContainerModel} customClasses={'no-padding'}>
+    <TanoshiContainerMaterial tanoshiContainerModel={serviceDevRowContainerModel} >
         <TanoshiHeader tanoshiHeaderModel={servicesDevelopmentHeader} />
 
-        <TanoshiContainer tanoshiContainerModel={servicesDevContainer} customClasses={'no-padding'}>
-            <TanoshiContainer tanoshiContainerModel={serviceDevItemContainer}>
-                <TanoshiContainer tanoshiContainerModel={serviceItemHeaderContainerModel}>
+        <TanoshiContainerMaterial tanoshiContainerModel={servicesDevContainer} >
+            <TanoshiContainerMaterial tanoshiContainerModel={serviceDevItemContainer}>
+                <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={auditDevelopmentHeader} />
                     <iconify-icon icon="fontisto:zoom" style="color: #fff;" height="40" width="40"></iconify-icon>
-                </TanoshiContainer>
+                </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={auditDevelopmentParagraph} />
-            </TanoshiContainer>
+            </TanoshiContainerMaterial>
 
-            <TanoshiContainer tanoshiContainerModel={serviceDevItemContainer}>
-                <TanoshiContainer tanoshiContainerModel={serviceItemHeaderContainerModel}>
+            <TanoshiContainerMaterial tanoshiContainerModel={serviceDevItemContainer}>
+                <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={upgradeDevelopmentHeader} />
                     <iconify-icon icon="mdi:creation" style="color: #fff;" height="50" width="50"></iconify-icon>
-                </TanoshiContainer>
+                </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={upgradeDevelopmentParagraph} />
-            </TanoshiContainer>
+            </TanoshiContainerMaterial>
 
-            <TanoshiContainer tanoshiContainerModel={serviceDevItemContainer}>
-                <TanoshiContainer tanoshiContainerModel={serviceItemHeaderContainerModel}>
+            <TanoshiContainerMaterial tanoshiContainerModel={serviceDevItemContainer}>
+                <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={fulldevDevelopmentHeader} />
                     <iconify-icon icon="fluent-mdl2:edit-create" style="color: #fff;" height="50" width="50"></iconify-icon>
-                </TanoshiContainer>
+                </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={fulldevDevelopmentParagraph} />
-            </TanoshiContainer>
+            </TanoshiContainerMaterial>
 
-        </TanoshiContainer>
+        </TanoshiContainerMaterial>
         <TanoshiLinkAsButton tanoshiLinkModel={devKnowMoreLinkAsButton} />
-    </TanoshiContainer>
+    </TanoshiContainerMaterial>
 </section>
 
 <section id="services-formation">
 
-    <TanoshiContainer tanoshiContainerModel={serviceFormationRowContainerModel} customClasses={'no-padding'}>
+    <TanoshiContainerMaterial tanoshiContainerModel={serviceFormationRowContainerModel} >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c3b3b" fill-opacity="1" d="M0,32L48,74.7C96,117,192,203,288,218.7C384,235,480,181,576,144C672,107,768,85,864,96C960,107,1056,149,1152,176C1248,203,1344,213,1392,218.7L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>        
         <TanoshiHeader tanoshiHeaderModel={servicesFormationHeader} />
-        <TanoshiContainer tanoshiContainerModel={servicesDevContainer} customClasses={'no-padding'}>
+        <TanoshiContainerMaterial tanoshiContainerModel={servicesDevContainer} >
 
-            <TanoshiContainer tanoshiContainerModel={serviceFormationItemContainer}>
-                <TanoshiContainer tanoshiContainerModel={serviceItemHeaderContainerModel}>
+            <TanoshiContainerMaterial tanoshiContainerModel={serviceFormationItemContainer}>
+                <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={backendFormationHeader} />
                     <iconify-icon icon="mdi:server" height="50" width="50"></iconify-icon>
-                </TanoshiContainer>
+                </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={backendFormationParagraph} />
-            </TanoshiContainer>
+            </TanoshiContainerMaterial>
 
-            <TanoshiContainer tanoshiContainerModel={serviceFormationItemContainer}>
-                <TanoshiContainer tanoshiContainerModel={serviceItemHeaderContainerModel}>
+            <TanoshiContainerMaterial tanoshiContainerModel={serviceFormationItemContainer}>
+                <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={frontendFormationHeader} />
                     <iconify-icon icon="mdi:language-html5" height="50" width="50"></iconify-icon>
-                </TanoshiContainer>
+                </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={frontendFormationParagraph} />
-            </TanoshiContainer>
+            </TanoshiContainerMaterial>
 
-            <TanoshiContainer tanoshiContainerModel={serviceFormationItemContainer}>
-                <TanoshiContainer tanoshiContainerModel={serviceItemHeaderContainerModel}>
+            <TanoshiContainerMaterial tanoshiContainerModel={serviceFormationItemContainer}>
+                <TanoshiContainerMaterial tanoshiContainerModel={serviceItemHeaderContainerModel}>
                     <TanoshiHeader tanoshiHeaderModel={toolsFormationHeader} />
                     <iconify-icon icon="fa:gears" height="50" width="50"></iconify-icon>
-                </TanoshiContainer>
+                </TanoshiContainerMaterial>
                 <TanoshiParagraph tanoshiParagraphModel={toolsParagraph} />
-            </TanoshiContainer>
-        </TanoshiContainer>
+            </TanoshiContainerMaterial>
+        </TanoshiContainerMaterial>
         <TanoshiLinkAsButton tanoshiLinkModel={formationKnowMoreLinkAsButton} />
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#D97734" fill-opacity="1" d="M0,192L48,192C96,192,192,192,288,165.3C384,139,480,85,576,85.3C672,85,768,139,864,144C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>    </TanoshiContainer>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#D97734" fill-opacity="1" d="M0,192L48,192C96,192,192,192,288,165.3C384,139,480,85,576,85.3C672,85,768,139,864,144C960,149,1056,107,1152,90.7C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>    </TanoshiContainerMaterial>
 
 </section>
 
 <section id="contact">
 
-    <TanoshiContainer tanoshiContainerModel={contactColumnContainer}>
+    <TanoshiContainerMaterial tanoshiContainerModel={contactColumnContainer}>
 
         <TanoshiHeader tanoshiHeaderModel={contactHeaderModel} />
-        <TanoshiContainer tanoshiContainerModel={contactParagraphsContainer} customClasses={'no-padding'}>   
+        <TanoshiContainerMaterial tanoshiContainerModel={contactParagraphsContainer} >   
             <TanoshiParagraph tanoshiParagraphModel={contactParagraphModel} />
             <TanoshiLinkAsButton tanoshiLinkModel={contactLinkAsButton} />
-        </TanoshiContainer>
-    </TanoshiContainer>
+        </TanoshiContainerMaterial>
+    </TanoshiContainerMaterial>
 </section>
 
 <style>

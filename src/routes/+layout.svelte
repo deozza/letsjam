@@ -1,12 +1,28 @@
 <script lang="ts">
-	import { CONTAINER_ITEMS_ALIGNMENTS, CONTAINER_ITEMS_SPACING, CONTAINER_ORIENTATIONS, HEIGHTS, SIZES, TEXT_ALIGNMENT, THEMES, TanoshiContainer, TanoshiContainerModel, TanoshiLink, TanoshiLinkModel, TanoshiNavigation, TanoshiNavigationModel, TanoshiParagraph, TanoshiParagraphModel } from 'tanoshi';
+	import { 
+        CONTAINER_ITEMS_ALIGNMENTS, 
+        CONTAINER_ITEMS_SPACING, 
+        CONTAINER_ORIENTATIONS, 
+        HEIGHTS, 
+        SIZES, 
+        TEXT_ALIGNMENT, 
+        THEMES, 
+        TanoshiContainerMaterial, 
+        TanoshiContainerModel, 
+        TanoshiDesktopNavigationModel, 
+        TanoshiLink, 
+        TanoshiLinkModel, 
+        TanoshiMobileNavigationModel, 
+        TanoshiNavigationMaterial, 
+        TanoshiParagraph, 
+        TanoshiParagraphModel 
+    } from 'tanoshi';
     import "@fontsource-variable/oswald";
     import '@fontsource-variable/montserrat';
     import './app.css';
 	import type { TanoshiNavigationLinkModel } from 'tanoshi/dist/types/Types';
 
-
-    const logoLink: TanoshiLinkModel = new TanoshiLinkModel('LETSJAM')
+    const titleLink: TanoshiLinkModel = new TanoshiLinkModel('LETSJAM')
         .setLink('/')
         .setTheme(THEMES.Primary)
         .setDisplaySize(SIZES['2Xl']);
@@ -17,7 +33,7 @@
    
     const desktopNavbarLeftItemModels: Array<TanoshiNavigationLinkModel> = [
 		{
-			link: logoLink,
+			link: titleLink,
 			component: TanoshiLink
 		},
 	];
@@ -30,30 +46,35 @@
 	];
 
     const mobileNavbarTopItemModels: Array<TanoshiNavigationLinkModel> = [
-		{
-			link: logoLink,
-			component: TanoshiLink
-		},
+        {
+            link: titleLink,
+            component: TanoshiLink
+        }
+    ];
+
+    const mobileNavbarItemModels: Array<TanoshiNavigationLinkModel> = [
         {
 			link: contactLink,
 			component: TanoshiLink
 		},
 	];
 
-    const tanoshiDesktopNavigationModel: TanoshiNavigationModel = new TanoshiNavigationModel()
+    const tanoshiDesktopNavigationModel: TanoshiDesktopNavigationModel = new TanoshiDesktopNavigationModel()
         .setTheme(THEMES.Black)
         .setItemsAtLeft(desktopNavbarLeftItemModels)
-        .setItemsAtRight(desktopNavbarRightItemModels);
+        .setItemsAtRight(desktopNavbarRightItemModels)
 
-    const tanoshiMobileNavigationModel: TanoshiNavigationModel = new TanoshiNavigationModel()
+    const tanoshiMobileNavigationModel: TanoshiMobileNavigationModel = new TanoshiMobileNavigationModel()
         .setTheme(THEMES.Black)
-        .setItemsAtLeft(mobileNavbarTopItemModels)
+        .setItemsWhenClosed(mobileNavbarTopItemModels)
+        .setItemsWhenOpened(mobileNavbarItemModels)
 
     const tanoshiMainContainerModel: TanoshiContainerModel = new TanoshiContainerModel(CONTAINER_ORIENTATIONS.C)
         .setBackgroundTheme(THEMES.Black)
         .setDesktopSpacing(CONTAINER_ITEMS_SPACING.Centered)
         .setItemsAlignment(CONTAINER_ITEMS_ALIGNMENTS.Center)
         .setHeight(HEIGHTS.MINH100VH)
+        .setHasPadding(false)
 
     const footerParagraph: TanoshiParagraphModel = new TanoshiParagraphModel("© 2023 LETSJAM")
         .setTheme(THEMES.White)
@@ -63,9 +84,9 @@
 </script>
 
 
-<TanoshiNavigation tanoshiDesktopNavigationModel={tanoshiDesktopNavigationModel}  tanoshiMobileNavigationModel={tanoshiMobileNavigationModel} />
+<TanoshiNavigationMaterial {tanoshiDesktopNavigationModel} {tanoshiMobileNavigationModel}/>
 
-<TanoshiContainer tanoshiContainerModel={tanoshiMainContainerModel} customClasses={'no-padding'}>
+<TanoshiContainerMaterial tanoshiContainerModel={tanoshiMainContainerModel} customClasses={'no-padding'}>
     <main>
         <slot />
     </main>
@@ -73,7 +94,7 @@
     <footer>
         <TanoshiParagraph tanoshiParagraphModel={footerParagraph} />
     </footer>
-</TanoshiContainer>
+</TanoshiContainerMaterial>
 
 <style>
     main{
